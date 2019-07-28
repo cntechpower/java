@@ -1,0 +1,3 @@
+module intro {
+	exports first;
+}
