@@ -3,7 +3,18 @@ package first;
 import java.util.Scanner;
 
 public class Prime {
-
+	public static boolean isPrime(int j) {
+			boolean isPrimeStatus=true;
+			for (int i=2;i<j;i++) {
+				if(j%i==0) {
+					isPrimeStatus=false;
+					break;
+				}
+			}
+			return isPrimeStatus;
+		}
+	
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 //		Scanner in=new Scanner(System.in);
@@ -30,6 +41,8 @@ public class Prime {
 //			System.out.println(n+"不是素数");
 //		}
 		}
+		System.out.println();
+		System.out.println(isPrime(97));
 
 	}
 
