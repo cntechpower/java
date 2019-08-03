@@ -1,30 +1,23 @@
 package dome;
 
-public class CD {
-	private String title;
+public class CD extends Item {
 	private String artist;
 	private int numofTracks;
-	private int palyingTimes;
-	private boolean gotIt = false;
-	private String comment;
 
 	public CD(String title, String artist, int numofTracks, int palyingTimes, String comment) {
-		super();
-		this.title = title;
+		super(title,palyingTimes,comment); //将title传递给父类,先做父类初始化,再做自己的初始化
 		this.artist = artist;
 		this.numofTracks = numofTracks;
-		this.palyingTimes = palyingTimes;
-		this.comment = comment;
 	}
 
 	public static void main(String[] args) {
 
 	}
 
-	public void print() {
-		// TODO Auto-generated method stub
-		System.out.println("CD="+title+":" +artist);
-		
-	}
+//	public void print() {
+//		// TODO Auto-generated method stub
+//		System.out.println("CD=" + title + ":" + artist);
+//
+//	}
 
 }
