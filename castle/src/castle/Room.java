@@ -32,16 +32,16 @@ public class Room {
     public String getExitDesc() {
     	StringBuffer ret=new StringBuffer(); //String相加成本会很高,这里使用了StringBuffer
     	if( northExit!=null) {
-    		ret.append(northExit);
+    		ret.append("north,");
     	}
     	if( southExit!=null) {
-    		ret.append(southExit);
+    		ret.append("south,");
     	}
     	if (eastExit!=null) {
-    		ret.append(eastExit);
+    		ret.append("east,");
     	}
     	if ( westExit!=null) {
-    		ret.append(westExit);
+    		ret.append("west,");
     	}
     	return ret.toString();
     }
