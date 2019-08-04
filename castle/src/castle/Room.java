@@ -29,4 +29,20 @@ public class Room {
     {
         return description;
     }
+    public String getExitDesc() {
+    	StringBuffer ret=new StringBuffer(); //String相加成本会很高,这里使用了StringBuffer
+    	if( northExit!=null) {
+    		ret.append(northExit);
+    	}
+    	if( southExit!=null) {
+    		ret.append(southExit);
+    	}
+    	if (eastExit!=null) {
+    		ret.append(eastExit);
+    	}
+    	if ( westExit!=null) {
+    		ret.append(westExit);
+    	}
+    	return ret.toString();
+    }
 }
