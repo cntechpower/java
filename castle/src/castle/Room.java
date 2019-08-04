@@ -1,66 +1,36 @@
 package castle;
 
+import java.util.HashMap;
+
 public class Room {
-    public String description;
-    public Room northExit;
-    public Room southExit;
-    public Room eastExit;
-    public Room westExit;
+	private String description;
+	private HashMap<String, Room> exits = new HashMap<String, Room>();
 
-    public Room(String description) 
-    {
-        this.description = description;
-    }
+	public Room(String description) {
+		this.description = description;
+	}
 
-    public void setExits(Room north, Room east, Room south, Room west) 
-    {
-        if(north != null)
-            northExit = north;
-        if(east != null)
-            eastExit = east;
-        if(south != null)
-            southExit = south;
-        if(west != null)
-            westExit = west;
-    }
+	public void setExit(String dir, Room room) {
+		exits.put(dir, room);
+	}
 
-    @Override
-    public String toString()
-    {
-        return description;
-    }
-    public String getExitDesc() {
-    	StringBuffer ret=new StringBuffer(); //String相加成本会很高,这里使用了StringBuffer
-    	if( northExit!=null) {
-    		ret.append("north,");
-    	}
-    	if( southExit!=null) {
-    		ret.append("south,");
-    	}
-    	if (eastExit!=null) {
-    		ret.append("east,");
-    	}
-    	if ( westExit!=null) {
-    		ret.append("west,");
-    	}
-    	return ret.toString();
-    }
-    public Room getExit(String direction) {
-    	Room ret=null;
-        if(direction.equals("north")) {
-            ret = northExit;
-        }
-        if(direction.equals("east")) {
-            ret = eastExit;
-        }
-        if(direction.equals("south")) {
-            ret = southExit;
-        }
-        if(direction.equals("west")) {
-            ret = westExit;
-        }
-        return ret;
-        
 
-    }
+	@Override
+	public String toString() {
+		return description;
+	}
+
+	public String getExitDesc() {
+		StringBuffer ret = new StringBuffer(); // String相加成本会很高,这里使用了StringBuffer
+		for (String dir : exits.keySet()) {
+			ret.append(dir);
+			ret.append(",");
+		}
+		return ret.toString();
+	}
+
+	public Room getExit(String direction) {
+		return exits.get(direction);
+
+	}
 }
