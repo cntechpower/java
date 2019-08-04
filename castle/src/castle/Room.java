@@ -45,4 +45,22 @@ public class Room {
     	}
     	return ret.toString();
     }
+    public Room getExit(String direction) {
+    	Room ret=null;
+        if(direction.equals("north")) {
+            ret = northExit;
+        }
+        if(direction.equals("east")) {
+            ret = eastExit;
+        }
+        if(direction.equals("south")) {
+            ret = southExit;
+        }
+        if(direction.equals("west")) {
+            ret = westExit;
+        }
+        return ret;
+        
+
+    }
 }
